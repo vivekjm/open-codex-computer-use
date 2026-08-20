@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+export PATH="${root}/scripts/bin:${PATH:-/usr/bin:/bin}"
 bus="${root}/scripts/lib/context_bus.py"
 pip="${root}/scripts/computer-use-pip.sh"
 cmd="${1:-help}"
@@ -16,7 +17,7 @@ Codex-style multi-window Computer Use:
   snapshot <App>              Capture AX+screenshot into the shared bus (compact)
   click <App> --element N     Click without moving the real pointer, then snapshot
   click <App> --x N --y N     Window-relative coordinate click, then snapshot
-  windows                     list_windows analogue (Sky Window2)
+  windows                     List visible app windows
   mentions                    Write @mention files for running/common apps
   bind <App> [--window-id N]  Reposition a cursor on an exact app window
   list                        Show active cursors/sessions
@@ -25,7 +26,8 @@ Codex-style multi-window Computer Use:
   stop [session-id]           Stop one cursor or all
 
 Context is written to ~/.cursor/computer-use/HANDOFF.md so any Cursor
-workspace can Read it. Screenshots stay on disk; only AX diffs go to the model.
+workspace can read it. Screenshots stay on disk; only compact AX diffs are
+included in the handoff. Runtime calls go through scripts/ocu-runtime.sh.
 EOF
 }
 
@@ -47,35 +49,22 @@ case "${cmd}" in
     python3 "${bus}" click "$@"
     "${pip}" show "$1" >/dev/null 2>&1 || true
     ;;
-  windows)
-    python3 "${bus}" windows
-    ;;
-  mentions)
-    python3 "${bus}" mentions
-    ;;
+  windows) python3 "${bus}" windows ;;
+  mentions) python3 "${bus}" mentions ;;
   bind)
     [[ $# -ge 1 ]] || { echo "bind requires an app name" >&2; exit 1; }
     python3 "${bus}" bind "$@"
     "${pip}" show "$1" >/dev/null 2>&1 || true
     ;;
-  list)
-    python3 "${bus}" list
-    ;;
-  context)
-    python3 "${bus}" context "${1:-}"
-    ;;
-  summary)
-    python3 "${bus}" summary
-    ;;
+  list) python3 "${bus}" list ;;
+  context) python3 "${bus}" context "${1:-}" ;;
+  summary) python3 "${bus}" summary ;;
   stop)
     if [[ -z "${1:-}" ]]; then
       "${root}/scripts/cu-cleanup.sh"
     else
-      python3 "${bus}" stop "${1:-}"
+      python3 "${bus}" stop "${1}"
     fi
     ;;
-  *)
-    usage >&2
-    exit 1
-    ;;
+  *) usage >&2; exit 1 ;;
 esac

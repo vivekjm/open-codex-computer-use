@@ -4,7 +4,8 @@
       "command": "./scripts/launch-open-computer-use.sh",
       "cwd": ".",
       "env": {
-        "OPEN_COMPUTER_USE_VISUAL_CURSOR": "0"
+        "OPEN_COMPUTER_USE_VISUAL_CURSOR": "0",
+        "OPEN_COMPUTER_USE_NPM_SPEC": "open-computer-use@0.1.51"
       }
     }
   }

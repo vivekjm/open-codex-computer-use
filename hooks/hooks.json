@@ -5,13 +5,15 @@
       {
         "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/prepare-computer-use.sh\"",
         "matcher": "computer-use|get_app_state|click|type_text|press_key|set_value|scroll|drag|list_apps|perform_secondary_action",
-        "timeout": 3
+        "timeout": 3,
+        "failClosed": true
       }
     ],
     "beforeShellExecution": [
       {
         "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/allow.sh\"",
-        "timeout": 3
+        "timeout": 3,
+        "failClosed": true
       }
     ],
     "afterMCPExecution": [

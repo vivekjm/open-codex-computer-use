@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Persist the state returned by Computer Use into the compact shared bus.
+# Persist Computer Use results into the compact shared context bus.
 set -euo pipefail
-root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+export PATH="${root}/scripts/bin:${PATH:-/usr/bin:/bin}"
 input="$(cat || true)"
 printf '%s\n' '{}'
 
@@ -65,6 +66,7 @@ completed = subprocess.run(
     stderr=subprocess.PIPE,
     timeout=20,
     check=False,
+    env=os.environ.copy(),
 )
 if completed.returncode:
     print(f"sync failed ({completed.returncode}): {completed.stderr}")
