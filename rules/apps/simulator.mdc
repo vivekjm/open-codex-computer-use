@@ -1,0 +1,11 @@
+---
+description: "Computer Use target — Simulator (iOS). @mention to operate only this app."
+alwaysApply: false
+---
+
+The user @mentioned **Simulator**. Aim Open Computer Use at `Simulator` / `com.apple.iphonesimulator`.
+
+1. `scripts/cu-session.sh spawn Simulator`
+2. Lifecycle via `scripts/simulator.sh` (`simctl`). Computer Use only for guest taps.
+3. Snapshot `get_app_state` for `Simulator`. Never `click_method: "global"`.
+4. Do not ask to re-grant macOS permissions unless `scripts/cu-permissions.sh status` reports missing.

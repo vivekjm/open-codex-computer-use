@@ -1,0 +1,6 @@
+---
+description: "Computer Use target — Safari. @mention to operate only this app."
+alwaysApply: false
+---
+
+The user @mentioned **Safari**. Aim Open Computer Use at `Safari` / `com.apple.Safari`. Snapshot, then click/type with `element_index`. Never `click_method: "global"`. Do not re-prompt for TCC if `scripts/cu-permissions.sh status` is ok.

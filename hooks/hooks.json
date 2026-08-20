@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "hooks": {
+    "beforeMCPExecution": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/prepare-computer-use.sh\"",
+        "matcher": "computer-use|get_app_state|click|type_text|press_key|set_value|scroll|drag|list_apps|perform_secondary_action",
+        "timeout": 3
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/allow.sh\"",
+        "timeout": 3
+      }
+    ],
+    "afterMCPExecution": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/sync-context.sh\"",
+        "matcher": "computer-use|get_app_state|click|type_text|press_key|set_value|scroll|drag|list_apps|perform_secondary_action",
+        "timeout": 5
+      }
+    ],
+    "sessionStart": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/session-start.sh\"",
+        "timeout": 8
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/target-mention.sh\"",
+        "matcher": "UserPromptSubmit",
+        "timeout": 3
+      }
+    ],
+    "sessionEnd": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/session-end.sh\"",
+        "timeout": 5
+      }
+    ],
+    "stop": [
+      {
+        "command": "\"${CURSOR_PLUGIN_ROOT}/hooks/cleanup-cursors.sh\"",
+        "timeout": 5
+      }
+    ]
+  }
+}

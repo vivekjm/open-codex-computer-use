@@ -1,0 +1,6 @@
+---
+description: "Computer Use target — Calendar. @mention to operate only this app."
+alwaysApply: false
+---
+
+The user @mentioned **Calendar**. Aim Open Computer Use at `Calendar` / `com.apple.iCal`. Snapshot, then act with `element_index`. Never `click_method: "global"`. Do not re-prompt for TCC if permissions are already granted.

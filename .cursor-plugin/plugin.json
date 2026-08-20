@@ -1,0 +1,23 @@
+{
+  "name": "open-computer-use",
+  "displayName": "Open Computer Use",
+  "version": "0.7.1",
+  "description": "Codex-style Computer Use for Cursor: multi-window overlay cursors, @mention app targeting, compact context bus, Simulator simctl, and Picture in Picture with window controls.",
+  "author": {
+    "name": "Vivek"
+  },
+  "homepage": "https://github.com/vivekjm/open-codex-computer-use",
+  "repository": "https://github.com/vivekjm/open-codex-computer-use",
+  "license": "MIT",
+  "keywords": [
+    "overlay-cursor",
+    "computer-use",
+    "mcp",
+    "desktop",
+    "automation",
+    "accessibility",
+    "macos"
+  ],
+  "logo": "assets/logo.svg",
+  "hooks": "./hooks/hooks.json"
+}

@@ -1,0 +1,6 @@
+---
+description: "Computer Use target — Finder. @mention to operate only this app."
+alwaysApply: false
+---
+
+The user @mentioned **Finder**. Aim Open Computer Use at `Finder`. Ask before moving or deleting files. Never `click_method: "global"`.

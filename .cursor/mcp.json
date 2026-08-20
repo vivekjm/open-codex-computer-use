@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "open-computer-use": {
+      "command": "./scripts/launch-open-computer-use.sh",
+      "cwd": ".",
+      "env": {
+        "OPEN_COMPUTER_USE_VISUAL_CURSOR": "0"
+      }
+    }
+  }
+}

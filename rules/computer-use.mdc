@@ -1,0 +1,12 @@
+---
+description: Use Open Computer Use MCP tools when the task needs a real desktop GUI. Act in the background with the overlay cursor; never move the user's pointer.
+alwaysApply: false
+---
+
+When the user asks to operate, inspect, click, type into, or screenshot a desktop app that has no better API or MCP integration, use the Open Computer Use skill and its MCP tools. If they **@mention** an app rule or `.cursor/computer-use/apps/*.md` file, target only that app.
+
+Work under the hood like Codex Computer Use: floating Currently Sharing PiP with close/minimize window controls, one overlay cursor per window, no real-pointer movement, no focus stealing, no Space switching. Share compact AX via `~/.cursor/computer-use/HANDOFF.md` and `SUMMARY.md`. For iOS Simulator, prefer `xcrun simctl` / `scripts/simulator.sh` for launch, terminate, screenshots, and logs; use Computer Use only for guest UI taps. Prefer `auto` / `accessibility` / `app_post` / `sky_click`. Never `click_method: "global"`.
+
+Do not ask the user to re-grant Accessibility or Screen Recording when `scripts/cu-permissions.sh status` reports granted. Only mention TCC after a real permission error.
+
+Do not guess `element_index` values. Snapshot first. Ask before send, delete, purchase, approve, or other externally visible actions. Stay out of password managers and unrelated private apps unless the user named them.

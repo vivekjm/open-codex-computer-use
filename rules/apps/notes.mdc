@@ -1,0 +1,6 @@
+---
+description: "Computer Use target — Notes. @mention to operate only this app."
+alwaysApply: false
+---
+
+The user @mentioned **Notes**. Aim Open Computer Use at `Notes` / `com.apple.Notes`. Prefer `set_value` for the note body. Never `click_method: "global"`.

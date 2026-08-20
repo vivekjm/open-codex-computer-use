@@ -1,0 +1,12 @@
+---
+description: "Computer Use target — Slack. @mention to operate only this app."
+alwaysApply: false
+---
+
+The user @mentioned **Slack**. Aim Open Computer Use at `Slack`.
+
+- Snapshot the current channel/DM before acting; do not inspect unrelated conversations.
+- Use `set_value` for the message composer when it is exposed. Use `type_text` only when the composer already has focus.
+- Never put a newline into `type_text` unless the user intends to send; Slack may submit on Return.
+- Confirm immediately before sending, reacting, editing, or deleting a message unless the user's request explicitly approved that exact action.
+- Never use `click_method: "global"`.
