@@ -6,7 +6,6 @@ import argparse
 import fcntl
 import os
 import subprocess
-import sys
 from pathlib import Path
 
 LOCK = Path(os.environ.get("OPEN_COMPUTER_USE_STATE_LOCK", "/tmp/open-computer-use-state.lock"))
@@ -24,6 +23,8 @@ def main() -> int:
     if not command:
         parser.error("a command is required after --")
 
+    LOCK.parent.mkdir(parents=True, exist_ok=True)
+    STOPPED.parent.mkdir(parents=True, exist_ok=True)
     LOCK.touch(exist_ok=True)
     with LOCK.open("r+") as handle:
         fcntl.flock(handle.fileno(), fcntl.LOCK_EX)

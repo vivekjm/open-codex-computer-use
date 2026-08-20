@@ -1,0 +1,33 @@
+name: Verify plugin
+
+on:
+  push:
+    branches: [main, "feat/**", "fix/**", "codex/**"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  static:
+    name: Static and MCP protocol checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: make verify
+
+  macos:
+    name: macOS PiP build
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: make verify
+      - run: make build-pip
+      - run: codesign --verify --deep --strict "dist/Computer Use PiP.app"

@@ -1,8 +1,8 @@
 {
   "name": "open-computer-use",
   "displayName": "Open Computer Use",
-  "version": "0.7.1",
-  "description": "Codex-style Computer Use for Cursor: multi-window overlay cursors, @mention app targeting, compact context bus, Simulator simctl, and Picture in Picture with window controls.",
+  "version": "0.8.0",
+  "description": "Codex-style background computer use for Cursor with a pinned MCP runtime, app-targeted virtual cursors, Picture in Picture, safety hooks, diagnostics, and reproducible setup.",
   "author": {
     "name": "Vivek"
   },
@@ -10,11 +10,12 @@
   "repository": "https://github.com/vivekjm/open-codex-computer-use",
   "license": "MIT",
   "keywords": [
-    "overlay-cursor",
     "computer-use",
+    "background-automation",
+    "overlay-cursor",
+    "picture-in-picture",
     "mcp",
     "desktop",
-    "automation",
     "accessibility",
     "macos"
   ],

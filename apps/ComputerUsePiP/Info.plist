@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.7.1</string>
+	<string>0.8.0</string>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>8</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>14.0</string>
 	<key>LSUIElement</key>
@@ -25,6 +25,6 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSScreenCaptureUsageDescription</key>
-	<string>Computer Use PiP shows a live preview of the app the agent is operating, the same way Codex Picture in Picture works.</string>
+	<string>Computer Use PiP shows a live preview of the app the agent is operating.</string>
 </dict>
 </plist>
