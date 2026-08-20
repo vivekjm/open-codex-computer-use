@@ -189,7 +189,7 @@ def verify_runtime_and_protocol() -> None:
 
         result = run(["scripts/ocu-runtime.sh", "path"], env=env)
         require(result.returncode == 0, result.stderr)
-        require(Path(result.stdout.strip()) == fake, "runtime override was not selected")
+        require(Path(result.stdout.strip()).resolve() == fake.resolve(), "runtime override was not selected")
 
         result = run(["scripts/bin/open-computer-use", "version"], env=env)
         require(result.returncode == 0 and "0.1.51-test" in result.stdout, result.stderr)
